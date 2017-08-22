@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         LogFile.putMsg("找不到操作术语");
 
-        LogFile.putMsg("%s%d%s", "线路", 1, "找不到操作术语");
+        LogFile.putMsg("线路%d找不到操作术语", "九");
 
         runOnUiThread(new Runnable() {
             @Override
@@ -22,11 +22,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 LogFile.putMsg("众所周知，你失败咯");
             }
         }.start();
+
+        LogFile.putMsg("与服务器连接失败：", "可能原因是您使用的2G网络");
+
+        LogFile.putMsg("获取用户信息失败：", "%s%d%s", "用户ID", 27, "不存在");
     }
 }

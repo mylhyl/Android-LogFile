@@ -28,12 +28,21 @@ public final class LogFile {
     }
 
     public static void putMsg(String format, Object... msg) {
-        writeToFile(String.format(format, msg));
+        putMsg(String.format(format, msg));
+    }
+
+    public static void putMsg(String tag, String format, Object... msg) {
+        putMsg(tag, String.format(format, msg));
     }
 
     public static void putMsg(String msg) {
-        writeToFile(msg);
+        putMsg("", msg);
     }
+
+    public static void putMsg(String tag, String msg) {
+        writeToFile(tag + msg);
+    }
+
 
     /**
      * 将log信息写入文件中
